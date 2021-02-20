@@ -1,0 +1,74 @@
+﻿@model Room
+@{
+    ViewData["Title"] = "QuestRoom";
+}
+<form>
+    <br /><br /><br />
+                <div style="margin:5px; text-align:center; background: pink; width:1400px; height:auto; border: 1px solid purple;">
+                    <table>
+                        <tr>
+                            <td>
+                                Name
+                            </td>
+                            <td>
+                                Description
+                            </td>
+                            <td>
+                                Time Of Passing
+                            </td>
+                            <td>
+                                Min Amount Of Players
+                            </td>
+                            <td>
+                                Max Amount Of Players
+                            </td>
+                            <td>
+                                PhoneNumber
+                            </td>
+                            <td>
+                                Rating
+                            </td>
+                            <td>
+                                Level Of Fear
+                            </td>
+                            <td>
+                                Level Of Difficulty
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(model => model.Name)
+                            </td>
+                            <br />
+                            <td>
+                                @Html.DisplayFor(model => model.Description)
+                            </td>
+                            <br />
+                            <td>
+                                @Html.DisplayFor(model => model.TimeOfPassing)
+                            </td>
+                            <td>
+                                <br />
+                                @Html.DisplayFor(model => model.MinAmountOfPlayers)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.MaxAmountOfPlayers)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.PhoneNumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Rating)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.LevelOfFear)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.LevelOfDifficulty)
+                            </td>
+                        </tr>
+
+                    </table> <br />
+                </div>
+</form>

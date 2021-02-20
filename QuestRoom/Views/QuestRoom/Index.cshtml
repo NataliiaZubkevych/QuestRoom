@@ -1,0 +1,82 @@
+﻿@using QuestRoom.Models
+@model IEnumerable<Room>;
+@{
+    ViewData["Title"] = "QuestRoom";
+}
+<section class="section section-lg bg-transparent novi-background" data-preset='{"title":"Blog Boxed","category":"blog","reload":true,"id":"blog-boxed-2"}'>
+    <div class="container">
+        <div class="row row-40 justify-content-lg-between">
+            <div class="col-md-8 post-area">
+                <h1>Quest Rooms</h1>
+                <!-- Post boxed-->
+                @foreach (Room room in Model)
+                {
+                    <div class="post post-boxed">
+                        <div class="post-meta post-meta-between">
+                            <div class="post-meta-item"></div>
+                            <div class="post-meta-item">
+
+                            </div>
+                            <div class="post-meta-item">
+                                <span>
+                                    @{
+                                        for (int i = 0; i < (int)room.Rating; i++)
+                                        {
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        }
+                                        if ((room.Rating - (int)room.Rating) > 0)
+                                        {
+                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                        }
+                                    }
+                                </span>
+                            </div>
+                        </div>
+
+                        <h3 class="post-title"><a href="/QuestRooms/@room.Id">@room.Name</a></h3><a class="post-img-link" href="/QuestRooms/@room.Id"><img src="images/about/1.jpg" alt="" width="760" height="489" /></a>
+                        <div class="post-text">@room.Description</div>
+
+                        <div class="post-meta post-meta-between post-meta-lg">
+                            <div class="post-meta-item info">
+                                <span>
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                    @room.TimeOfPassing minutes <br /><br /><br />
+                                </span>
+                            </div>
+                            <br /><br /><br />
+                            <div class="post-tags">
+                                <br /><br /><br />Gamers (min/max): <span class="post-tag">@room.MinAmountOfPlayers - @room.MaxAmountOfPlayers <br /><br /><br /></span>
+                            </div>
+
+                            <div class="post-tags">
+                                <br /><br /><br />Level:
+                                @{
+                                    for (int i = 0; i < (int)room.LevelOfDifficulty; i++)
+                                    {
+                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                    }
+                                }
+                            </div>
+
+                            <div class="post-meta-item"><a class="btn btn-secondary" href="/QuestRooms/@room.Id">More</a></div>
+
+                        </div>
+
+                        <br /><br /><br />
+                        <div>
+
+                            <div class="post-meta-item"><a class="btn btn-secondary" style="background:purple; color:black;" href="~/QuestRoom/Edit/7">Edit</a></div>
+                            <div class="post-meta-item"><a class="btn btn-secondary" style="background:red;" href="/QuestRooms/Delete/7">Delete</a></div>
+                        </div>
+                    </div>
+                }
+                </div>
+            <form action="/" method="post">
+                <div class="widget-body">
+                    <div class="post-meta-item"><a class="btn btn-secondary" style="background:none; color:black;" href="~/QuestRoom/Create">Create</a></div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>
